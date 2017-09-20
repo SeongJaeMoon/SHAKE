@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">흔들흔들</string>
+    <string name="presented_by">Presented by engineering of GIS.</string>
+    <string name="start">시작</string>
+    <string name="open">열기</string>
+    <string name="close">닫기</string>
+    <string name="alert_view">전체보기</string>
+    <string name="help_view">도움말</string>
+    <string name="setting">설정</string>
+    <string name="location_per">흔들흔들은 위치 권한이 필요합니다.</string>
+    <string name="location_set">기기의 GPS 정보가 필요합니다. 위치 권한을 켜주세요.</string>
+    <string name="choose_not_set">선택 된 버튼이 없습니다.</string>
+    <string name="location_not_found">위치를 찾을 수 없습니다.</string>
+    <string name="view_per">흔들흔들은 다른 앱 위에 그려질 수 있는 권한이 필요합니다.</string>
+    <string name="try_again">다시 시도해주세요.</string>
+    <string name="tts_not_setup">음성 안내를 사용할 수 없습니다.</string>
+    <string name="tts_setup">음성 안내 기능이 설정되었습니다.</string>
+    <string name="uni_station">학교->역</string>
+    <string name="station_uni">역->학교</string>
+    <string name="seocho">학교->서초</string>
+    <string name="dongseoul">학교-평택->동서울</string>
+    <string name="seongnam">학교->성남</string>
+    <string name="Incheon">학교->인천</string>
+    <string name="selected">선택 된 버튼 :</string>
+    <string name="already_start">이미 실행 중입니다. 중지 하고 다시 시도하세요.</string>
+    <string name="speech_word_sec">남은 시간은 약 %1$d 초 셔틀장까지 거리는 약 %1$s 미터입니다.</string>
+    <string name="speech_wrod_min">남은 시간은 약 %1$d 분 셔틀장까지 거리는 약 %1$s 미터입니다.</string>
+    <string name="speech_word_hour">남은 시간은 약 %1$d 시간 셔틀장까지 거리는 약 %1$s 미터입니다.</string>
+    <string name="distance_shuttle">셔틀장까지 거리는 약 %1$s m</string>
+    <string name="distance_station">역까지 거리는 약 %1$s m</string>
+    <string name="so_far">거리를 계산하기에 너무 멉니다.</string>
+    <string name="time_over">셔틀 운행 시간이 아닙니다.</string>
+    <string name="donation">ca-app-pub-1405827106256391/6607646045</string>
+</resources>
