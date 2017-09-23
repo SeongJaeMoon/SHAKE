@@ -25,6 +25,7 @@
         android:text="@string/presented_by"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
@@ -41,7 +42,7 @@
         android:id="@+id/seperator1"
         android:layout_width="fill_parent"
         android:layout_height="2dp"
-        android:background="@color/green"
+        android:background="@color/black"
         android:layout_below="@+id/presented_by">
     </View>
 
@@ -50,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/seperator1"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="80dp"
         android:textSize="20sp"
         android:text="@string/uni_station"/>
@@ -64,10 +65,10 @@
         android:src="@android:color/darker_gray"
         android:id="@+id/uni_station"
         app:btn_color="@android:color/darker_gray"
-        app:btn_fill_color="#FF6666"
+        app:btn_fill_color="@color/colorAccent"
         app:allow_random_color="true"
         app:enable_flashing="true"
-        app:big_shine_color="#FF6666"
+        app:big_shine_color="@color/colorAccent"
         app:click_animation_duration="200"
         app:shine_animation_duration="1500"
         app:shine_turn_angle="10"
@@ -81,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/seperator1"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="230dp"
         android:textSize="20sp"
         android:text="@string/station_uni"/>
@@ -95,10 +96,10 @@
         android:src="@android:color/darker_gray"
         android:id="@+id/station_uni"
         app:btn_color="@android:color/darker_gray"
-        app:btn_fill_color="#FF6666"
+        app:btn_fill_color="@color/colorAccent"
         app:allow_random_color="true"
         app:enable_flashing="true"
-        app:big_shine_color="#FF6666"
+        app:big_shine_color="@color/colorAccent"
         app:click_animation_duration="200"
         app:shine_animation_duration="1500"
         app:shine_turn_angle="10"
@@ -109,61 +110,61 @@
     <View
         android:id="@+id/seperator2"
         android:layout_width="fill_parent"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_height="2dp"
-        android:background="@color/green"
+        android:background="@color/black"
         android:layout_below="@+id/uni_station">
     </View>
 
     <TextView
-        android:id="@+id/text_seocho"
+        android:id="@+id/text_yeongdeungpo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/seperator2"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="80dp"
-        android:textSize="20sp"
-        android:text="@string/seocho"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:textSize="10sp"
+        android:text="@string/yeongdeungpo"/>
 
     <com.sackcentury.shinebuttonlib.ShineButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/text_seocho"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/text_yeongdeungpo"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="20dp"
         android:src="@android:color/darker_gray"
-        android:id="@+id/uni_seocho"
+        android:id="@+id/uni_yeongdeungpo"
         app:btn_color="@android:color/darker_gray"
-        app:btn_fill_color="#FF6666"
+        app:btn_fill_color="@color/blue_dark"
         app:allow_random_color="true"
         app:enable_flashing="true"
-        app:big_shine_color="#FF6666"
+        app:big_shine_color="@color/blue_dark"
         app:click_animation_duration="200"
         app:shine_animation_duration="1500"
         app:shine_turn_angle="10"
         app:small_shine_offset_angle="20"
         app:small_shine_color="#CC9999"
         app:shine_count="8"
-        app:siShape="@raw/star"/>
+        app:siShape="@raw/smile"/>
 
     <TextView
-        android:id="@+id/text_dongseoul"
+        android:id="@+id/text_cheolsan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/uni_seocho"
+        android:layout_below="@+id/uni_yeongdeungpo"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="50dp"
-        android:textSize="20sp"
-        android:text="@string/dongseoul"/>
+        android:layout_marginStart="15dp"
+        android:textSize="13sp"
+        android:text="@string/cheolsan"/>
 
     <com.sackcentury.shinebuttonlib.ShineButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/text_dongseoul"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/text_cheolsan"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="30dp"
         android:src="@android:color/darker_gray"
-        android:id="@+id/uni_dongseoul"
+        android:id="@+id/uni_cheolsan"
         app:btn_color="@android:color/darker_gray"
         app:btn_fill_color="#FF6666"
         app:allow_random_color="true"
@@ -175,26 +176,26 @@
         app:small_shine_offset_angle="20"
         app:small_shine_color="#CC9999"
         app:shine_count="8"
-        app:siShape="@raw/star"/>
+        app:siShape="@raw/heart"/>
 
     <TextView
-        android:id="@+id/text_seongnam"
+        android:id="@+id/text_anyang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/seperator2"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="230dp"
-        android:textSize="20sp"
-        android:text="@string/seongnam"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="85dp"
+        android:textSize="10sp"
+        android:text="@string/anyang"/>
 
     <com.sackcentury.shinebuttonlib.ShineButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/text_seongnam"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/text_anyang"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="230dp"
+        android:layout_marginStart="85dp"
         android:src="@android:color/darker_gray"
-        android:id="@+id/uni_seongnam"
+        android:id="@+id/uni_anyang"
         app:btn_color="@android:color/darker_gray"
         app:btn_fill_color="#FF6666"
         app:allow_random_color="true"
@@ -206,26 +207,119 @@
         app:small_shine_offset_angle="20"
         app:small_shine_color="#CC9999"
         app:shine_count="8"
-        app:siShape="@raw/star"/>
+        app:siShape="@raw/smile"/>
 
     <TextView
-        android:id="@+id/text_Incheon"
+        android:id="@+id/text_ilsan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/uni_seongnam"
+        android:layout_below="@+id/uni_anyang"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="230dp"
-        android:textSize="20sp"
-        android:text="@string/Incheon"/>
+        android:layout_marginStart="118dp"
+        android:textSize="13sp"
+        android:text="@string/ilsan"/>
 
     <com.sackcentury.shinebuttonlib.ShineButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/text_Incheon"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/text_ilsan"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="230dp"
+        android:layout_marginStart="118dp"
         android:src="@android:color/darker_gray"
-        android:id="@+id/uni_incheon"
+        android:id="@+id/uni_ilsan"
+        app:btn_color="@android:color/darker_gray"
+        app:btn_fill_color="@color/blue_dark"
+        app:allow_random_color="true"
+        app:enable_flashing="true"
+        app:big_shine_color="@color/blue_dark"
+        app:click_animation_duration="200"
+        app:shine_animation_duration="1500"
+        app:shine_turn_angle="10"
+        app:small_shine_offset_angle="20"
+        app:small_shine_color="#CC9999"
+        app:shine_count="8"
+        app:siShape="@raw/heart"/>
+
+<TextView
+    android:id="@+id/text_incheon_juan"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/seperator2"
+    android:layout_marginTop="10dp"
+    android:layout_marginStart="142dp"
+    android:textSize="10sp"
+    android:text="@string/incheon_juan"/>
+
+    <com.sackcentury.shinebuttonlib.ShineButton
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/text_incheon_juan"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="150dp"
+        android:src="@android:color/darker_gray"
+        android:id="@+id/uni_incheon_juan"
+        app:btn_color="@android:color/darker_gray"
+        app:btn_fill_color="@color/blue_dark"
+        app:allow_random_color="true"
+        app:enable_flashing="true"
+        app:big_shine_color="@color/blue_dark"
+        app:click_animation_duration="200"
+        app:shine_animation_duration="1500"
+        app:shine_turn_angle="10"
+        app:small_shine_offset_angle="20"
+        app:small_shine_color="#CC9999"
+        app:shine_count="8"
+        app:siShape="@raw/smile"/>
+
+    <TextView
+        android:id="@+id/text_incheon_bupyeong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uni_incheon_juan"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="185dp"
+        android:textSize="13sp"
+        android:text="@string/incheon_bupyeong"/>
+
+    <com.sackcentury.shinebuttonlib.ShineButton
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/text_incheon_bupyeong"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="205dp"
+        android:src="@android:color/darker_gray"
+        android:id="@+id/uni_bupyeong"
+        app:btn_color="@android:color/darker_gray"
+        app:btn_fill_color="@color/blue_dark"
+        app:allow_random_color="true"
+        app:enable_flashing="true"
+        app:big_shine_color="@color/blue_dark"
+        app:click_animation_duration="200"
+        app:shine_animation_duration="1500"
+        app:shine_turn_angle="10"
+        app:small_shine_offset_angle="20"
+        app:small_shine_color="#CC9999"
+        app:shine_count="8"
+        app:siShape="@raw/heart"/>
+
+    <TextView
+        android:id="@+id/text_bucheon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seperator2"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="220dp"
+        android:textSize="10sp"
+        android:text="@string/bucehon"/>
+
+    <com.sackcentury.shinebuttonlib.ShineButton
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/text_bucheon"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="215dp"
+        android:src="@android:color/darker_gray"
+        android:id="@+id/uni_bucheon"
         app:btn_color="@android:color/darker_gray"
         app:btn_fill_color="#FF6666"
         app:allow_random_color="true"
@@ -237,7 +331,130 @@
         app:small_shine_offset_angle="20"
         app:small_shine_color="#CC9999"
         app:shine_count="8"
-        app:siShape="@raw/star"/>
+        app:siShape="@raw/smile"/>
+
+    <TextView
+        android:id="@+id/text_suwon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uni_bucheon"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="287dp"
+        android:textSize="13sp"
+        android:text="@string/suwon"/>
+
+    <com.sackcentury.shinebuttonlib.ShineButton
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@android:color/darker_gray"
+        android:id="@+id/uni_suwon"
+        app:btn_color="@android:color/darker_gray"
+        app:btn_fill_color="#FF6666"
+        app:allow_random_color="true"
+        app:enable_flashing="true"
+        app:big_shine_color="#FF6666"
+        app:click_animation_duration="200"
+        app:shine_animation_duration="1500"
+        app:shine_turn_angle="10"
+        app:small_shine_offset_angle="20"
+        app:small_shine_color="#CC9999"
+        app:shine_count="8"
+        app:siShape="@raw/heart"
+        android:layout_above="@+id/text_dongtan"
+        android:layout_alignStart="@+id/text_suwon"/>
+
+    <TextView
+        android:id="@+id/text_seongname_moran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seperator2"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="280dp"
+        android:textSize="10sp"
+        android:text="@string/seongnam_moran"/>
+
+    <com.sackcentury.shinebuttonlib.ShineButton
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/text_seongname_moran"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="280dp"
+        android:src="@android:color/darker_gray"
+        android:id="@+id/uni_seongnam_moran"
+        app:btn_color="@android:color/darker_gray"
+        app:btn_fill_color="@color/blue_dark"
+        app:allow_random_color="true"
+        app:enable_flashing="true"
+        app:big_shine_color="@color/blue_dark"
+        app:click_animation_duration="200"
+        app:shine_animation_duration="1500"
+        app:shine_turn_angle="10"
+        app:small_shine_offset_angle="20"
+        app:small_shine_color="#CC9999"
+        app:shine_count="8"
+        app:siShape="@raw/smile"/>
+
+    <TextView
+        android:id="@+id/text_dongtan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uni_ilsan"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="125dp"
+        android:textSize="15sp"
+        android:text="@string/dongtan"/>
+
+    <com.sackcentury.shinebuttonlib.ShineButton
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/text_dongtan"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="125dp"
+        android:src="@android:color/darker_gray"
+        android:id="@+id/uni_dongtan"
+        app:btn_color="@android:color/darker_gray"
+        app:btn_fill_color="#FF6666"
+        app:allow_random_color="true"
+        app:enable_flashing="true"
+        app:big_shine_color="#FF6666"
+        app:click_animation_duration="200"
+        app:shine_animation_duration="1500"
+        app:shine_turn_angle="10"
+        app:small_shine_offset_angle="20"
+        app:small_shine_color="#CC9999"
+        app:shine_count="8"
+        app:siShape="@raw/heart"/>
+
+    <TextView
+        android:id="@+id/text_ansan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uni_bupyeong"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="200dp"
+        android:textSize="15sp"
+        android:text="@string/ansan"/>
+
+    <com.sackcentury.shinebuttonlib.ShineButton
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/text_ansan"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="200dp"
+        android:src="@android:color/darker_gray"
+        android:id="@+id/uni_ansan"
+        app:btn_color="@android:color/darker_gray"
+        app:btn_fill_color="#FF6666"
+        app:allow_random_color="true"
+        app:enable_flashing="true"
+        app:big_shine_color="#FF6666"
+        app:click_animation_duration="200"
+        app:shine_animation_duration="1500"
+        app:shine_turn_angle="10"
+        app:small_shine_offset_angle="20"
+        app:small_shine_color="#CC9999"
+        app:shine_count="8"
+        app:siShape="@raw/heart"/>
 
     <Button
         android:id="@+id/notify_me"
@@ -248,6 +465,6 @@
         android:background="@color/colorAccent"
         android:textColor="@color/white"
         android:textStyle="bold"
+        android:textSize="20sp"
         android:text="@string/start"/>
-
 </RelativeLayout>

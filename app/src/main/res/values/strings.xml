@@ -5,30 +5,56 @@
     <string name="open">열기</string>
     <string name="close">닫기</string>
     <string name="alert_view">전체보기</string>
-    <string name="help_view">도움말</string>
+    <string name="help_view">환영합니다!</string>
+    <string name="first_time">앱을 사용하기 전에 도움말을 읽어주세요.</string>
     <string name="setting">설정</string>
-    <string name="location_per">흔들흔들은 위치 권한이 필요합니다.</string>
+    <string name="location_per">흔들흔들은 거리계산을 위해 위치 권한이 필요합니다.</string>
+    <string name="calender_per">흔들흔들은 시간계산을 위해 일정 권한이 필요합니다.</string>
+    <string name="permission_ok">권한이 설정되었습니다.</string>
     <string name="location_set">기기의 GPS 정보가 필요합니다. 위치 권한을 켜주세요.</string>
     <string name="choose_not_set">선택 된 버튼이 없습니다.</string>
     <string name="location_not_found">위치를 찾을 수 없습니다.</string>
+    <string name="watting_location">위치를 찾고 있습니다. 실내에선 측정이 어려울 수 있습니다.</string>
     <string name="view_per">흔들흔들은 다른 앱 위에 그려질 수 있는 권한이 필요합니다.</string>
     <string name="try_again">다시 시도해주세요.</string>
     <string name="tts_not_setup">음성 안내를 사용할 수 없습니다.</string>
     <string name="tts_setup">음성 안내 기능이 설정되었습니다.</string>
+    <!--운행종류-->
     <string name="uni_station">학교->역</string>
     <string name="station_uni">역->학교</string>
-    <string name="seocho">학교->서초</string>
-    <string name="dongseoul">학교-평택->동서울</string>
-    <string name="seongnam">학교->성남</string>
-    <string name="Incheon">학교->인천</string>
+    <string name="yeongdeungpo">학교->영등포</string>
+    <string name="cheolsan">학교->광명(철산역)</string>
+    <string name="anyang">학교->안양</string>
+    <string name="ilsan">학교->일산</string>
+    <string name="incheon_juan">학교->인천(주안역)</string>
+    <string name="incheon_bupyeong">학교->인천(부평역)</string>
+    <string name="bucehon">학교->부천</string>
+    <string name="suwon">학교->수원</string>
+    <string name="seongnam_moran">학교->성남모란</string>
+    <string name="dongtan">학교->동탄</string>
+    <string name="ansan">학교->안산</string>
+    <!---->
     <string name="selected">선택 된 버튼 :</string>
     <string name="already_start">이미 실행 중입니다. 중지 하고 다시 시도하세요.</string>
-    <string name="speech_word_sec">남은 시간은 약 %1$d 초 셔틀장까지 거리는 약 %1$s 미터입니다.</string>
-    <string name="speech_wrod_min">남은 시간은 약 %1$d 분 셔틀장까지 거리는 약 %1$s 미터입니다.</string>
-    <string name="speech_word_hour">남은 시간은 약 %1$d 시간 셔틀장까지 거리는 약 %1$s 미터입니다.</string>
     <string name="distance_shuttle">셔틀장까지 거리는 약 %1$s m</string>
     <string name="distance_station">역까지 거리는 약 %1$s m</string>
     <string name="so_far">거리를 계산하기에 너무 멉니다.</string>
     <string name="time_over">셔틀 운행 시간이 아닙니다.</string>
+    <string name="weekend_over">주말엔 운행 시간을 계산할 수 없습니다.</string>
+    <string name="fry_weekend_over">주말이나 금요일엔 운행시간을 계산할 수 없습니다.</string>
     <string name="donation">ca-app-pub-1405827106256391/6607646045</string>
+    <!--도움말-->
+    <string name="about_introduction">This application is Copyright SeongJae-Moon, egineering of GIS in namseoul university. All rights reserved.\n\nThis application use open source libray.
+        \nYou can find the source code of these open source projects, along with applicable license information, below.
+        \n\nI am deeply grateful to these developers for their work. \n\nAny questions about our use of licensed work can be sent to seongjae.m@gmail.com. Thank you.</string>
+    <string name="about_suttle">셔틀버스 정보는 학교에서 제공하는 셔틀 버스 표지판을 통해 구성되었으며, 현재 시간과 남은 셔틀의 시간 정보를 비교하여 남아 있는 셔틀 중 가장 까가운 시간에 셔틀을 안내합니다. 승차 인원이 몰리는 등,하교 시간엔 셔틀의 운행이 유동적이므로 5분 이상의 오차가 발생할 수 있습니다. 또한, 금요일과 주말 운행에 관련된 정보도 유동적일 수 있음을 알려드립니다. 학교와 역을 오가는 셔틀이 아닌 경우(예:영등포) 하행 정보(학교를 떠나는)만 제공되며, 정오 12시부터 해당 셔틀의 출발시간까지만 조회가 가능합니다.(예:영등포, 12시~18시10분)</string>
+    <string name="about_view">학교와 역을 오가는 셔틀의 정보를 제공 받기 위해선 본 앱을 다른 앱 위에 그려질 수 있도록 설정하여야 합니다. 또한, 시간과 거리를 계산하기 위해 위치 권한과 캘린더 권한이 필요합니다.(설정>애플리케이션>흔들흔들>권한 허용)또한, 버튼을 중복으로 선택하였을 경우 마지막에 선택한 버튼이 선택됩니다. 서비스가 시작된 경우 앱을 다시 실행 하기 위해선 먼저 서비스를 종료하고 실행해주세요.</string>
+    <string name="about_location">거리는 스마트폰에 내장된 GPS와 네트워크 정보를 통해 계산되며 위치 설정을 실행해야 합니다. 학교에서 역으로 가는 셔틀의 정보는 학교 셔틀장 반경 2km 내에 있을 경우에만 계산되며 역에서 학교로 가는 셔틀의 정보는 역 셔틀 탑승 장소 반경 2km 내에 있어야 계산됩니다. 또한, 실내에선 측정이 어려우며 약 5m 이상의 오차가 발생할 수 있습니다. GPS의 지속적인 사용은 배터리 사용량을 증가시킬 수 있습니다.</string>
+    <string name="about_tts">음성 안내는 음성합성기술 Text To Speech(TTS)를 통해 이루어지며, 기종마다 지원 폭이 상이할 수 있습니다. 앱의 실행시 \'음성 안내 기능이 설정되었습니다.\'라는 메세지가 나오면 정상적으로 음성 안내를 받을 수 있습니다. 음성이 나오지 않을 경우 구글TTS 엔진으로 변경해주세요.(설정>일반>언어 및 입력방식>글자 읽어주기) 지속적으로 음성이 나오지 않을 경우 개발자에게 문의 부탁드립니다.</string>
+    <string name="about_shake">흔들림 감지는 스마트폰에 내장된 가속도계의 회전변화를 감지하여 이루어지며 기종마다 지원 폭이 상이할 수 있습니다. 약 3번 정도 가볍게 흔들어 주시면 됩니다.</string>
+    <string name="about_notice">본 내용은 이용자(권한 사용에 동의한 자를 말합니다.이하 \"이용자\"이라고 합니다)가 위치기반서비스(이하 \"위치\"라고 합니다)와 일정에 관한 정보(이하 \"일정\"이라 합니다)를 이용함에 있어 개발자(이하 \"개발자\"라 합니다)와 이용자의 이용방침, 책임의 제한 및 기타 필요 사항 등을 규정함을 목적으로 합니다. \n\n(1.) 이용자의 의무\n\n이 프로그램은 이용자에게 남서울대학교의 셔틀버스 시간 정보를 제공하기 위해 개발되었으며, 개발자에 동의 없는 리버스 엔지리어닝, 디컴파일, 디스어셈블 등을 할 수 없습니다.
+        \n\n(2.) 위치와 일정의 취득 목적 및 사용범위\n\n1.위치는 스마트폰 단말기의 네트워크, GPS 정보를 통해 수집되며 이용자와 셔틀장의 거리 및 이용자와 역 셔틀장의 거리를 계산하기 위해 사용됩니다. 수집된 모든 자료와 정보는 개발자를 비롯한 제 3자에게 제공될 수 없습니다.\n\n2.일정은 GPS 위성 기지국에서 제공되는 시간 정보를 이용하는 스마트폰 단말기의 시간을 사용하며 이용자의 스마트폰 단말기와 셔틀간의 시간 차이를 계산하고, 요일을 계산하기 위해 사용됩니다. 수집된 모든 자료와 정보는 개발자를 비롯한 제 3자에게 제공될 수 없습니다. \n\n3.위치와 일정은 개발자를 비롯한 제 3자의 USB, 클라우드, 데이터베이스, 서버 등 저장 가능한 모든 매체에 저장될 수 없습니다.
+        \n\n4.위 내용에 준하는 위치정보 보호 및 이용 등에 관한 법률 15조와 26조, 정보통신망 이용촉진 및 정보보호 등에 관한 법률 25조에 의거하여 이용자는 개발자에게 손해배상을 청구할 수 있습니다. 이 경우 개발자가 고의 또는 과실이 없음을 입증하지 아니하면 책임을 면할 수 없습니다. \n\n5.개발자와 개인정보위치 및 개인정보일정의 주체는 위치와 일정에 관련된 분쟁에 대해 개인정보보호법에 따라 개인 정보분쟁조정위원회에 조정을 신청할 수 있습니다.\n\n(3.) 책임의 제한\n\n흔들흔들의 모든 정보와 자료는 이용자에게 셔틀 버스 운행 정보를 원할하게 제공함을 목적으로 하며 정확성과 신뢰성을 보증하지 않습니다. 이와 관련하여 발생하는 모든 문제에 대해 본 개발자는 책임이 없음을 알려드립니다. \n\n위 내용은 이용자가 앱을 최초 실행 했을 때 부터 적용됩니다.\n교신메일: seongjae.m@gmail.com</string>
+    <string name="share">공유</string>
+    <string name="please">(개발자의 개인적인 당부 사항.) \n\n무리한 앱 사용을 지양하고 참고용으로 사용해주세요.\n항상 서로 배려하고 양보하는 남대인이 되었으면 좋겠습니다!\n\n이 앱은 남서울대학교 GIS 공학과의 GIS소프트웨어개발 실무 과목의 프로젝트 일환으로 개발되었습니다.\n\n(주)OK관광 041.567.5600(사무실)\nOK부장님 010.5383.2992</string>
 </resources>
