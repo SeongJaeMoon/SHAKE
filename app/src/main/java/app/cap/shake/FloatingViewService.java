@@ -248,8 +248,8 @@ public class FloatingViewService extends Service implements ShakeDetector.OnShak
                             speech(getString(R.string.time_over));
                         } else {
                                 isFinished = getMinimum(what_time_isit(), day_ofthe_week(), set);
-                                Toast.makeText(getApplicationContext(), isFinished+" 미터입니다.", Toast.LENGTH_LONG).show();
-                                speech(isFinished+" 미터입니다.");
+                                Toast.makeText(getApplicationContext(), isFinished+String.valueOf(distance)+" 미터입니다.", Toast.LENGTH_LONG).show();
+                                speech(isFinished+String.valueOf(distance)+"미터입니다.");
                             }
                         }
                     }
@@ -421,9 +421,9 @@ public class FloatingViewService extends Service implements ShakeDetector.OnShak
                 }
             }
              if (result>1000){//10:00시 이후
-                 min_string = "가장 가까운 셔틀의 출발시간은 "+String.valueOf(result/1000%10)+String.valueOf(result/100%10)+"시 "+String.valueOf(result /10%10)+String.valueOf(result%10)+"분 차이며, 셔틀장까지 거리는 약";
+                 min_string = "가장 가까운 셔틀의 출발시간은 "+String.valueOf(result/1000%10)+String.valueOf(result/100%10)+"시 "+String.valueOf(result /10%10)+String.valueOf(result%10)+"분 차이며, 셔틀장까지 거리는 약 ";
             }else{ //10:00시 이전
-                min_string = "가장 가까운 셔틀의 출발시간은 "+String.valueOf(result/100%10)+"시 "+String.valueOf(result /10%10)+String.valueOf(result%10)+"분 차이며, 셔틀장까지 거리는 약";
+                min_string = "가장 가까운 셔틀의 출발시간은 "+String.valueOf(result/100%10)+"시 "+String.valueOf(result /10%10)+String.valueOf(result%10)+"분 차이며, 셔틀장까지 거리는 약 ";
             }
         } else if (!day.equals("금") && type.equals(station_uni)) {//역->학교 금요일이 아닐경우
             for (int i = 0; i < min_station_uni.length; i++) {
@@ -434,9 +434,9 @@ public class FloatingViewService extends Service implements ShakeDetector.OnShak
                 }
             }
             if (result>1000){//10:00시 이후
-                min_string = "가장 가까운 셔틀의 출발시간은 "+String.valueOf(result/1000%10)+String.valueOf(result/100%10)+"시 "+String.valueOf(result /10%10)+String.valueOf(result%10)+"분 차이며, 역 셔틀장까지 거리는 약";
+                min_string = "가장 가까운 셔틀의 출발시간은 "+String.valueOf(result/1000%10)+String.valueOf(result/100%10)+"시 "+String.valueOf(result /10%10)+String.valueOf(result%10)+"분 차이며, 역 셔틀장까지 거리는 약 ";
             }else{ //10:00시 이전
-                min_string = "가장 가까운 셔틀의 출발시간은 "+String.valueOf(result/100%10)+"시 "+String.valueOf(result /10%10)+String.valueOf(result%10)+"분 차이며, 역 셔틀장까지 거리는 약";
+                min_string = "가장 가까운 셔틀의 출발시간은 "+String.valueOf(result/100%10)+"시 "+String.valueOf(result /10%10)+String.valueOf(result%10)+"분 차이며, 역 셔틀장까지 거리는 약 ";
             }
         } else if (day.equals("금") && type.equals(uni_station)) {//학교->역 금요일
             for (int i = 0; i < min_uni_station_f.length; i++) {

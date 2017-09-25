@@ -22,6 +22,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import com.sackcentury.shinebuttonlib.ShineButton;
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -43,6 +45,8 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     private BackHandler backHandler;
     private static final String uni_station_ = "uni_station"; // 학교->역(셔틀장)
     private static final String station_uni_ = "station_uni"; // 역->학교 (성환역)
+    private SimpleDateFormat sdf = new SimpleDateFormat("HHmm", Locale.KOREA);//시간 차를 계산하기 위한 포멧
+    private Calendar c1, c2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             editor.putBoolean("isFirst", false).apply();
             showGuide();
         }
+
         //역->학교
         station_uni.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,12 +159,25 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                     speech(getString(R.string.time_over));
                                 } else {
                                     int result = 1810 - what_time_isit();
-                                    if (result > 100) {
-                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                        speech("셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
-                                    } else {
-                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                        speech("셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
+                                    c1 = Calendar.getInstance();
+                                    c2 = Calendar.getInstance();
+                                    try {
+                                        c1.setTime(sdf.parse(String.valueOf(what_time_isit())));
+                                        c2.setTime(sdf.parse("1810"));
+                                        long b = (c2.getTimeInMillis() - c1.getTimeInMillis())/1000;
+                                        long a = b/(60*60); //남은시간
+                                        long hourToMin = a *60;//분으로 변환
+                                        long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
+                                        if (result > 100) {
+                                            Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                            speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
+                                        } else {
+                                            Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                            speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
+                                        }
+                                    }catch (ParseException e){
+                                        e.printStackTrace();
+                                        Toast.makeText(getApplicationContext(), getString(R.string.try_again), Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }
@@ -188,12 +206,25 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                 speech(getString(R.string.time_over));
                             } else {
                                 int result = 1700 - what_time_isit();
-                                if (result > 100) {
-                                    Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                    speech("셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                    speech("셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
+                                c1 = Calendar.getInstance();
+                                c2 = Calendar.getInstance();
+                                try {
+                                    c1.setTime(sdf.parse(String.valueOf(what_time_isit())));
+                                    c2.setTime(sdf.parse("1700"));
+                                    long b = (c2.getTimeInMillis() - c1.getTimeInMillis())/1000;
+                                    long a = b/(60*60); //남은시간
+                                    long hourToMin = a *60;//분으로 변환
+                                    long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
+                                    if (result > 100) {
+                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
+                                    } else {
+                                        Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
+                                    }
+                                }catch (ParseException e){
+                                    e.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), getString(R.string.try_again), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }
@@ -222,12 +253,25 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                 speech(getString(R.string.time_over));
                             } else {
                                 int result = 1700 - what_time_isit();
-                                if (result > 100) {
-                                    Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                    speech("셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                    speech("셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
+                                c1 = Calendar.getInstance();
+                                c2 = Calendar.getInstance();
+                                try {
+                                    c1.setTime(sdf.parse(String.valueOf(what_time_isit())));
+                                    c2.setTime(sdf.parse("1700"));
+                                    long b = (c2.getTimeInMillis() - c1.getTimeInMillis())/1000;
+                                    long a = b/(60*60); //남은시간
+                                    long hourToMin = a *60;//분으로 변환
+                                    long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
+                                    if (result > 100) {
+                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
+                                    } else {
+                                        Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
+                                    }
+                                }catch (ParseException e){
+                                    e.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), getString(R.string.try_again), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }
@@ -256,12 +300,25 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                 speech(getString(R.string.time_over));
                             } else {
                                 int result = 1700 - what_time_isit();
-                                if (result > 100) {
-                                    Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                    speech("셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                    speech("셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
+                                c1 = Calendar.getInstance();
+                                c2 = Calendar.getInstance();
+                                try {
+                                    c1.setTime(sdf.parse(String.valueOf(what_time_isit())));
+                                    c2.setTime(sdf.parse("1700"));
+                                    long b = (c2.getTimeInMillis() - c1.getTimeInMillis())/1000;
+                                    long a = b/(60*60); //남은시간
+                                    long hourToMin = a *60;//분으로 변환
+                                    long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
+                                    if (result > 100) {
+                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
+                                    } else {
+                                        Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
+                                    }
+                                }catch (ParseException e){
+                                    e.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), getString(R.string.try_again), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }
@@ -290,12 +347,25 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                 speech(getString(R.string.time_over));
                             } else {
                                 int result = 1630 - what_time_isit();
-                                if (result > 100) {
-                                    Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                    speech("셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                    speech("셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
+                                c1 = Calendar.getInstance();
+                                c2 = Calendar.getInstance();
+                                try {
+                                    c1.setTime(sdf.parse(String.valueOf(what_time_isit())));
+                                    c2.setTime(sdf.parse("1630"));
+                                    long b = (c2.getTimeInMillis() - c1.getTimeInMillis())/1000;
+                                    long a = b/(60*60); //남은시간
+                                    long hourToMin = a *60;//분으로 변환
+                                    long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
+                                    if (result > 100) {
+                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
+                                    } else {
+                                        Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
+                                    }
+                                }catch (ParseException e){
+                                    e.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), getString(R.string.try_again), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }
@@ -324,12 +394,25 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                             speech(getString(R.string.time_over));
                         } else {
                             int result = 1630 - what_time_isit();
-                            if (result > 100) {
-                                Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                speech("셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
-                            } else {
-                                Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                speech("셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
+                            c1 = Calendar.getInstance();
+                            c2 = Calendar.getInstance();
+                            try {
+                                c1.setTime(sdf.parse(String.valueOf(what_time_isit())));
+                                c2.setTime(sdf.parse("1630"));
+                                long b = (c2.getTimeInMillis() - c1.getTimeInMillis())/1000;
+                                long a = b/(60*60); //남은시간
+                                long hourToMin = a *60;//분으로 변환
+                                long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
+                                if (result > 100) {
+                                    Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                    speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
+                                } else {
+                                    Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                    speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
+                                }
+                            }catch (ParseException e){
+                                e.printStackTrace();
+                                Toast.makeText(getApplicationContext(), getString(R.string.try_again), Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -357,23 +440,47 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                 Toast.makeText(getApplicationContext(), getString(R.string.time_over), Toast.LENGTH_SHORT).show();
                                 speech(getString(R.string.time_over));
                             } else {
+                                c1 = Calendar.getInstance();
+                                c2 = Calendar.getInstance();
                                 if (what_time_isit() < 1630) {
                                     int result = 1630 - what_time_isit();
-                                    if (result > 100) {
-                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                        speech("셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
-                                    } else {
-                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                        speech("셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
+                                    try {
+                                        c1.setTime(sdf.parse(String.valueOf(what_time_isit())));
+                                        c2.setTime(sdf.parse("1630"));
+                                        long b = (c2.getTimeInMillis() - c1.getTimeInMillis())/1000;
+                                        long a = b/(60*60); //남은시간
+                                        long hourToMin = a *60;//분으로 변환
+                                        long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
+                                        if (result > 100) {
+                                            Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                            speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
+                                        } else {
+                                            Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                            speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
+                                        }
+                                    }catch (ParseException e){
+                                        e.printStackTrace();
+                                        Toast.makeText(getApplicationContext(), getString(R.string.try_again), Toast.LENGTH_SHORT).show();
                                     }
                                 } else {
-                                    int result = 1710 - what_time_isit();
-                                    if (result > 100) {
-                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                        speech("셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
-                                    } else {
-                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                        speech("셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
+                                    try {
+                                        int result = 1710 - what_time_isit();
+                                        c1.setTime(sdf.parse(String.valueOf(what_time_isit())));
+                                        c2.setTime(sdf.parse("1710"));
+                                        long b = (c2.getTimeInMillis() - c1.getTimeInMillis())/1000;
+                                        long a = b/(60*60); //남은시간
+                                        long hourToMin = a *60;//분으로 변환
+                                        long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
+                                        if (result > 100) {
+                                            Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                            speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
+                                        } else {
+                                            Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                            speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
+                                        }
+                                    }catch (ParseException e){
+                                        e.printStackTrace();
+                                        Toast.makeText(getApplicationContext(), getString(R.string.try_again), Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }
@@ -398,17 +505,30 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                             Toast.makeText(getApplicationContext(), getString(R.string.fry_weekend_over), Toast.LENGTH_SHORT).show();
                             speech(getString(R.string.fry_weekend_over));
                         } else {
-                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1700 < what_time_isit() && what_time_isit() < 2460)) {//오전1시~오전12시 && 오후4시 반~오후12시는 계산시간에서 제외
+                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1700 < what_time_isit() && what_time_isit() < 2460)) {//오전1시~오전12시 && 오후5시~오후12시는 계산시간에서 제외
                                 Toast.makeText(getApplicationContext(), getString(R.string.time_over), Toast.LENGTH_SHORT).show();
                                 speech(getString(R.string.time_over));
                             } else {
+                                c1 = Calendar.getInstance();
+                                c2 = Calendar.getInstance();
                                 int result = 1700 - what_time_isit();
-                                if (result > 100) {
-                                    Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                    speech("셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                    speech("셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
+                                try {
+                                    c1.setTime(sdf.parse(String.valueOf(what_time_isit())));
+                                    c2.setTime(sdf.parse("1700"));
+                                    long b = (c2.getTimeInMillis() - c1.getTimeInMillis())/1000;
+                                    long a = b/(60*60); //남은시간
+                                    long hourToMin = a *60;//분으로 변환
+                                    long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
+                                    if (result > 100) {
+                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
+                                    } else {
+                                        Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
+                                    }
+                                }catch (ParseException e){
+                                    e.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), getString(R.string.try_again), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }
@@ -436,23 +556,47 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                 Toast.makeText(getApplicationContext(), getString(R.string.time_over), Toast.LENGTH_SHORT).show();
                                 speech(getString(R.string.time_over));
                             } else {
+                                c1 = Calendar.getInstance();
+                                c2 = Calendar.getInstance();
                                 if (what_time_isit() < 1720) {
                                     int result = 1720 - what_time_isit();
-                                    if (result > 100) {
-                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                        speech("셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
-                                    } else {
-                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                        speech("셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
+                                    try {
+                                        c1.setTime(sdf.parse(String.valueOf(what_time_isit())));
+                                        c2.setTime(sdf.parse("1720"));
+                                        long b = (c2.getTimeInMillis() - c1.getTimeInMillis())/1000;
+                                        long a = b/(60*60); //남은시간
+                                        long hourToMin = a *60;//분으로 변환
+                                        long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
+                                        if (result > 100) {
+                                            Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                            speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
+                                        } else {
+                                            Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                            speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
+                                        }
+                                    }catch (ParseException e){
+                                        e.printStackTrace();
+                                        Toast.makeText(getApplicationContext(), getString(R.string.try_again), Toast.LENGTH_SHORT).show();
                                     }
                                 } else {
-                                    int result = 1810 - what_time_isit();
-                                    if (result > 100) {
-                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                        speech("셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
-                                    } else {
-                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                        speech("셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
+                                    try {
+                                        int result = 2010 - what_time_isit();
+                                        c1.setTime(sdf.parse(String.valueOf(what_time_isit())));
+                                        c2.setTime(sdf.parse("2010"));
+                                        long b = (c2.getTimeInMillis() - c1.getTimeInMillis())/1000;
+                                        long a = b/(60*60); //남은시간
+                                        long hourToMin = a *60;//분으로 변환
+                                        long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
+                                        if (result > 100) {
+                                            Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                            speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
+                                        } else {
+                                            Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                            speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
+                                        }
+                                    }catch (ParseException e){
+                                        e.printStackTrace();
+                                        Toast.makeText(getApplicationContext(), getString(R.string.try_again), Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }
@@ -477,17 +621,30 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                             Toast.makeText(getApplicationContext(), getString(R.string.fry_weekend_over), Toast.LENGTH_SHORT).show();
                             speech(getString(R.string.fry_weekend_over));
                         } else {
-                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1700 < what_time_isit() && what_time_isit() < 2460)) {//오전1시~오전12시 && 오후4시 반~오후12시는 계산시간에서 제외
+                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1700 < what_time_isit() && what_time_isit() < 2460)) {//오전1시~오전12시 && 오후5시~오후12시는 계산시간에서 제외
                                 Toast.makeText(getApplicationContext(), getString(R.string.time_over), Toast.LENGTH_SHORT).show();
                                 speech(getString(R.string.time_over));
                             } else {
+                                c1 = Calendar.getInstance();
+                                c2 = Calendar.getInstance();
                                 int result = 1700 - what_time_isit();
-                                if (result > 100) {
-                                    Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                    speech("셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                    speech("셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
+                                try {
+                                    c1.setTime(sdf.parse(String.valueOf(what_time_isit())));
+                                    c2.setTime(sdf.parse("1700"));
+                                    long b = (c2.getTimeInMillis() - c1.getTimeInMillis())/1000;
+                                    long a = b/(60*60); //남은시간
+                                    long hourToMin = a *60;//분으로 변환
+                                    long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
+                                    if (result > 100) {
+                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
+                                    } else {
+                                        Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
+                                    }
+                                }catch (ParseException e){
+                                    e.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), getString(R.string.try_again), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }
@@ -515,13 +672,26 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                 Toast.makeText(getApplicationContext(), getString(R.string.time_over), Toast.LENGTH_SHORT).show();
                                 speech(getString(R.string.time_over));
                             } else {
+                                c1 = Calendar.getInstance();
+                                c2 = Calendar.getInstance();
                                 int result = 1730 - what_time_isit();
-                                if (result > 100) {
-                                    Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                    speech("셔틀 출발까지 " + String.valueOf(result / 100 % 10) + "시간 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.", Toast.LENGTH_LONG).show();
-                                    speech("셔틀 출발까지 " + String.valueOf(result / 10 % 10) + String.valueOf(result % 10) + "분 남았습니다.");
+                                try {
+                                    c1.setTime(sdf.parse(String.valueOf(what_time_isit())));
+                                    c2.setTime(sdf.parse("1730"));
+                                    long b = (c2.getTimeInMillis() - c1.getTimeInMillis())/1000;
+                                    long a = b/(60*60); //남은시간
+                                    long hourToMin = a *60;//분으로 변환
+                                    long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
+                                    if (result > 100) {
+                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
+                                    } else {
+                                        Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
+                                    }
+                                }catch (ParseException e){
+                                    e.printStackTrace();
+                                    Toast.makeText(getApplicationContext(), getString(R.string.try_again), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }
@@ -707,6 +877,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         now = sdf.format(date);
         return Integer.parseInt(now);
     }
+
     @Override
     public void onBackPressed(){
         backHandler.onBackPressed();
