@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                             Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                             speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                         } else {
-                                            Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                             speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
                                         }
                                     }catch (ParseException e){
@@ -219,7 +219,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                         Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                     } else {
-                                        Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
                                     }
                                 }catch (ParseException e){
@@ -266,7 +266,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                         Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                     } else {
-                                        Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
                                     }
                                 }catch (ParseException e){
@@ -313,7 +313,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                         Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                     } else {
-                                        Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
                                     }
                                 }catch (ParseException e){
@@ -360,7 +360,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                         Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                     } else {
-                                        Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
                                     }
                                 }catch (ParseException e){
@@ -407,7 +407,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                     Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                     speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                 } else {
-                                    Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                     speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
                                 }
                             }catch (ParseException e){
@@ -455,7 +455,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                             Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                             speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                         } else {
-                                            Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                             speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
                                         }
                                     }catch (ParseException e){
@@ -475,7 +475,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                             Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                             speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                         } else {
-                                            Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                             speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
                                         }
                                     }catch (ParseException e){
@@ -523,7 +523,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                         Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                     } else {
-                                        Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
                                     }
                                 }catch (ParseException e){
@@ -571,7 +571,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                             Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                             speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                         } else {
-                                            Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                             speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
                                         }
                                     }catch (ParseException e){
@@ -591,7 +591,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                             Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                             speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                         } else {
-                                            Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                             speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
                                         }
                                     }catch (ParseException e){
@@ -639,7 +639,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                         Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                     } else {
-                                        Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
                                     }
                                 }catch (ParseException e){
@@ -686,7 +686,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                         Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                     } else {
-                                        Toast.makeText(getApplicationContext(),  String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(min) + "분 남았습니다.");
                                     }
                                 }catch (ParseException e){

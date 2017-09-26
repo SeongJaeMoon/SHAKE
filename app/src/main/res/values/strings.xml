@@ -37,7 +37,7 @@
     <string name="selected">선택 된 버튼 :</string>
     <string name="already_start">이미 실행 중입니다. 중지 하고 다시 시도하세요.</string>
     <string name="distance_shuttle">셔틀장까지 거리는 약 %1$s m</string>
-    <string name="distance_station">역까지 거리는 약 %1$s m</string>
+    <string name="distance_station">역 셔틀장까지 거리는 약 %1$s m</string>
     <string name="so_far">거리를 계산하기에 너무 멉니다.</string>
     <string name="time_over">셔틀 운행 시간이 아닙니다.</string>
     <string name="weekend_over">주말엔 운행 시간을 계산할 수 없습니다.</string>
@@ -47,9 +47,9 @@
     <string name="about_introduction">This application is Copyright © Seongjae Moon. All rights reserved.\n\nThis application use Open Source Library.
         \nYou can find the source code of these open source projects, along with applicable license information, below.
         \n\nI am deeply grateful to these developers for their work. \n\nAny questions about our use of licensed work can be sent to seongjae.m@gmail.com. Thank you.</string>
-    <string name="about_suttle">셔틀버스 정보는 학교에서 제공하는 셔틀 버스 표지판을 통해 구성되었으며, 현재 시간과 남은 셔틀의 시간 정보를 비교하여 남아 있는 셔틀 중 가장 까가운 시간에 셔틀을 안내합니다.셔틀 시간 정보는 24시간제를 사용합니다.(예:오후 6시40분, 18시40분)\n승차 인원이 몰리는 등,하교 시간엔 셔틀의 운행이 유동적이므로 5분 이상의 오차가 발생할 수 있습니다. \n또한, 금요일과 주말 운행에 관련된 정보도 유동적일 수 있음을 알려드립니다. 학교와 역을 오가는 셔틀이 아닌 경우(예:영등포) 하행 정보(학교를 떠나는)만 제공되며, 정오 12시부터 해당 셔틀의 출발시간까지만 조회가 가능합니다.(예:영등포, 12시~18시10분)</string>
+    <string name="about_suttle">셔틀버스 정보는 학교에서 제공하는 셔틀 버스 표지판을 통해 구성되었으며, 현재 시간과 남은 셔틀의 시간 정보를 비교하여 남아 있는 셔틀 중 가장 까가운 시간에 셔틀을 안내합니다.\n셔틀 시간 정보는 24시간제를 사용합니다.(예:오후 6시40분, 18시40분)\n승차 인원이 몰리는 등,하교 시간엔 셔틀의 운행이 유동적이므로 5분 이상의 오차가 발생할 수 있습니다. 또한, 금요일과 주말 운행에 관련된 정보도 유동적일 수 있음을 알려드립니다. \n학교와 역을 오가는 셔틀이 아닌 경우(예:영등포) 하행 정보(학교를 떠나는)만 제공되며, 정오12시부터 해당 셔틀의 출발시간까지만 조회가 가능합니다.(예:영등포, 12시~18시10분)</string>
     <string name="about_view">학교와 역을 오가는 셔틀의 정보를 제공 받기 위해선 본 앱을 다른 앱 위에 그려질 수 있도록 설정하여야 합니다.\n또한, 시간과 거리를 계산하기 위해 위치 권한과 캘린더 권한이 필요합니다.(설정>애플리케이션>흔들흔들>권한 허용)\n버튼을 중복으로 선택하였을 경우 마지막에 선택한 버튼이 선택됩니다.\n서비스가 시작된 경우 앱을 다시 실행 하기 위해선 먼저 서비스를 종료하고 실행해주세요.</string>
-    <string name="about_location">거리는 스마트폰에 내장된 GPS와 네트워크 정보를 통해 계산되며 위치 설정을 실행해야 합니다.\n학교에서 역으로 가는 셔틀의 정보는 학교 셔틀장 반경 2km 내에 있을 경우에만 계산되며 역에서 학교로 가는 셔틀의 정보는 역 셔틀 탑승 장소반경 2km 내에 있어야 계산됩니다.\n또한, 실내에선 측정이 어려우며 약 5m 이상의 오차가 발생할 수 있습니다.\nGPS의 지속적인 사용은 배터리 사용량을 증가시킬 수 있습니다.</string>
+    <string name="about_location">거리는 스마트폰에 내장된 GPS와 네트워크 정보를 통해 계산되며 위치 설정을 실행해야 합니다.\n학교에서 역으로 가는 셔틀의 정보는 학교 셔틀장 반경 2km 내에 있을 경우에만 계산되며 역에서 학교로 가는 셔틀의 정보는 역 셔틀 탑승 장소반경 2km 내에 있어야 계산됩니다.\n또한, 실내에선 측정이 어려우며 약 5m 이상의 오차가 발생할 수 있습니다.(GPS의 지속적인 사용은 배터리 사용량을 증가시킬 수 있습니다.)</string>
     <string name="about_tts">음성 안내는 음성합성기술 Text To Speech(TTS)를 통해 이루어지며, 기종마다 지원 폭이 상이할 수 있습니다.\n앱의 실행시 \'음성 안내 기능이 설정되었습니다.\'라는 메세지가 나오면 정상적으로 음성 안내를 받을 수 있습니다.\n음성이 나오지 않을 경우 구글TTS 엔진으로 변경해주세요.(설정>일반>언어 및 입력방식>글자읽어주기)\n지속적으로 음성이 나오지 않을 경우 개발자에게 문의 부탁드립니다.</string>
     <string name="about_shake">흔들림 감지는 스마트폰에 내장된 가속도계의 회전변화를 감지하여 이루어지며 기종마다 지원 폭이 상이할 수 있습니다.\n약 3번 정도 가볍게 흔들어 주시면 됩니다.</string>
     <string name="about_notice">본 내용은 이용자(권한 사용에 동의한 자를 말합니다.이하 \"이용자\"이라고 합니다)가 위치기반서비스(이하 \"위치\"라고 합니다)와 일정에 관한 정보(이하 \"일정\"이라 합니다)를 이용함에 있어 개발자(이하 \"개발자\"라 합니다)와 이용자의 이용방침, 책임의 제한 및 기타 필요 사항 등을 규정함을 목적으로 합니다. \n\n(1.) 이용자의 의무\n\n이 프로그램은 이용자에게 남서울대학교의 셔틀버스 시간 정보를 제공하기 위해 개발되었으며, 개발자에 동의 없는 리버스 엔지리어닝, 디컴파일, 디스어셈블 등을 할 수 없습니다.

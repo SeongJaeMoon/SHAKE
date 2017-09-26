@@ -43,7 +43,7 @@ public class FloatingViewService extends Service implements ShakeDetector.OnShak
     //셔틀장 경위도
     public static final double Lat = 36.910371;
     public static final double Lng = 127.142214;
-    //역 경위도
+    //역 셔틀장 경위도
     public static final double lat = 36.916134;
     public static final double lng = 127.127917;
     //거리 변수
