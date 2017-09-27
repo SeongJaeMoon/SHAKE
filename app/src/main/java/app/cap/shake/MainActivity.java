@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
 import android.speech.tts.TextToSpeech;
@@ -762,6 +763,8 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     public boolean onOptionsItemSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
             case R.id.all_view :
+                Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("https://shake-52ca3.firebaseapp.com/"));
+                startActivity(intent);
                 break;
             case R.id.help_view:
                 startActivity(new Intent(MainActivity.this, AboutActivity.class));
