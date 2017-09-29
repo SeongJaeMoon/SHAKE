@@ -249,7 +249,7 @@ public class FloatingViewService extends Service implements ShakeDetector.OnShak
                         } else {
                                 isFinished = getMinimum(what_time_isit(), day_ofthe_week(), set);
                                 Toast.makeText(getApplicationContext(), isFinished+String.valueOf(distance)+" 미터입니다.", Toast.LENGTH_LONG).show();
-                                speech(isFinished+String.valueOf(distance)+"미터입니다.");
+                                speech(isFinished+String.valueOf(Math.ceil(distance))+"미터입니다.");
                             }
                         }
                     }
