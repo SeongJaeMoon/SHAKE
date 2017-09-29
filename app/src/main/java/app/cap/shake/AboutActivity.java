@@ -126,13 +126,4 @@ public class AboutActivity extends AbsAboutActivity {
                 "ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE \n" +
                 "OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."));
     }
-    public void onClickShare() {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
-        intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share));
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(Intent.createChooser(intent, getTitle()));
-    }
-
 }
