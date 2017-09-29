@@ -78,7 +78,7 @@ public class AboutActivity extends AbsAboutActivity {
                 "Version 2.0, January 2004\n" +
                 "http://www.apache.org/licenses/ \n" +
                 "TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n" +
-                "\n\n" +
+                "\n"+
                 "1. Definitions.\n\n" +
                 "\"License\" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.\n" +
                 "\"Licensor\" shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.\n" +
