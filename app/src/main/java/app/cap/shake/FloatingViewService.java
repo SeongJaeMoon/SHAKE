@@ -183,6 +183,8 @@ public class FloatingViewService extends Service implements ShakeDetector.OnShak
             @Override
             public void onClick(View view) {
                 //close 버튼 클릭시 서비스도 종료
+                ShakeDetector.stop();
+                ShakeDetector.destroy();
                 stopSelf();
             }
         });
@@ -300,8 +302,8 @@ public class FloatingViewService extends Service implements ShakeDetector.OnShak
             tts.stop();
             tts.shutdown();
         }
+        ShakeDetector.stop();
         ShakeDetector.destroy();
-        stopSelf();
     }
 
     //tts 초기화
