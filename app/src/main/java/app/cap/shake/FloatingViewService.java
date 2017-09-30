@@ -147,10 +147,10 @@ public class FloatingViewService extends Service implements ShakeDetector.OnShak
         //위치 권한 설정&&위치 업데이트 설정
         if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) && ActivityCompat.checkSelfPermission(getApplicationContext(),
                 android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_DENIED) {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3000, 5, this);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1500, 5, this);
         } else if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) && locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER) &&
                 ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_DENIED) {
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 3000, 5, this);
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1500, 5, this);
         }
         //View 객체 생성
         mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_floating_widget, null);
