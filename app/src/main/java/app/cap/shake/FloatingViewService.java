@@ -301,6 +301,7 @@ public class FloatingViewService extends Service implements ShakeDetector.OnShak
             tts.shutdown();
         }
         ShakeDetector.destroy();
+        stopSelf();
     }
 
     //tts 초기화
