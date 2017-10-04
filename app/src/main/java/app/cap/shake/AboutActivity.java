@@ -79,7 +79,7 @@ public class AboutActivity extends AbsAboutActivity {
                 "http://www.apache.org/licenses/ \n" +
                 "TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n" +
                 "\n"+
-                "1. Definitions.\n\n" +
+                "1. Definitions.\n"+
                 "\"License\" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.\n" +
                 "\"Licensor\" shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.\n" +
                 "\"Legal Entity\" shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, \"control\" means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.\n" +
@@ -108,7 +108,6 @@ public class AboutActivity extends AbsAboutActivity {
                 "\n"+
                 "END OF TERMS AND CONDITIONS"));
         items.add(new Category("MIT License\n" +
-                "\n" +
                 "Copyright (c) <year> <copyright holders>\n" +
                 "\n" +
                 "Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), \n" +
