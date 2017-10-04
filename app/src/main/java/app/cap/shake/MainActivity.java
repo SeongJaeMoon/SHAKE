@@ -186,6 +186,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             @Override
             public void onCheckedChanged(View view, boolean checked) {
                     if (checked){
+                        Log.w("whattimeisit: ", String.valueOf(what_time_isit())+","+String.valueOf(test()));
                         if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED){
                             if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this, Manifest.permission.READ_CALENDAR)) {
                                 Toast.makeText(getApplicationContext(), getString(R.string.calender_per), Toast.LENGTH_LONG).show();
@@ -197,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                 Toast.makeText(getApplicationContext(), getString(R.string.fry_weekend_over), Toast.LENGTH_SHORT).show();
                                 speech(getString(R.string.fry_weekend_over));
                             } else {
-                                if ((100 < what_time_isit() && what_time_isit() < 1200) || (1810 < what_time_isit() && what_time_isit() < 2460)) {//오전1시~오전12시 && 오후6시10~오후12시는 계산시간에서 제외
+                                if ((100 < what_time_isit() && what_time_isit() < 1200) || (1810 < what_time_isit() && what_time_isit() < 2400)|| what_time_isit()<100) {//오전1시~오전12시 && 오후6시10~오후12시는 계산시간에서 제외
                                     Toast.makeText(getApplicationContext(), getString(R.string.time_over), Toast.LENGTH_SHORT).show();
                                     speech(getString(R.string.time_over));
                                 } else {
@@ -211,7 +212,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                         long a = b/(60*60); //남은시간
                                         long hourToMin = a *60;//분으로 변환
                                         long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
-                                        if (result > 100) {
+                                        if (result >= 100) {
                                             Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                             speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                         } else {
@@ -244,7 +245,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                             Toast.makeText(getApplicationContext(), getString(R.string.fry_weekend_over), Toast.LENGTH_SHORT).show();
                             speech(getString(R.string.fry_weekend_over));
                         } else {
-                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1700 < what_time_isit() && what_time_isit() < 2460)) {//오전1시~오전12시 && 오후5시~오후12시는 계산시간에서 제외
+                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1700 < what_time_isit() && what_time_isit() < 2400)|| what_time_isit()<100) {//오전1시~오전12시 && 오후5시~오후12시는 계산시간에서 제외
                                 Toast.makeText(getApplicationContext(), getString(R.string.time_over), Toast.LENGTH_SHORT).show();
                                 speech(getString(R.string.time_over));
                             } else {
@@ -258,7 +259,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                     long a = b/(60*60); //남은시간
                                     long hourToMin = a *60;//분으로 변환
                                     long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
-                                    if (result > 100) {
+                                    if (result >= 100) {
                                         Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                     } else {
@@ -291,7 +292,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                             Toast.makeText(getApplicationContext(), getString(R.string.fry_weekend_over), Toast.LENGTH_SHORT).show();
                             speech(getString(R.string.fry_weekend_over));
                         } else {
-                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1700 < what_time_isit() && what_time_isit() < 2460)) {//오전1시~오전12시 && 오후5시~오후12시는 계산시간에서 제외
+                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1700 < what_time_isit() && what_time_isit() < 2400)|| what_time_isit()<100) {//오전1시~오전12시 && 오후5시~오후12시는 계산시간에서 제외
                                 Toast.makeText(getApplicationContext(), getString(R.string.time_over), Toast.LENGTH_SHORT).show();
                                 speech(getString(R.string.time_over));
                             } else {
@@ -305,7 +306,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                     long a = b/(60*60); //남은시간
                                     long hourToMin = a *60;//분으로 변환
                                     long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
-                                    if (result > 100) {
+                                    if (result >= 100) {
                                         Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                     } else {
@@ -338,7 +339,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                             Toast.makeText(getApplicationContext(), getString(R.string.fry_weekend_over), Toast.LENGTH_SHORT).show();
                             speech(getString(R.string.fry_weekend_over));
                         } else {
-                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1700 < what_time_isit() && what_time_isit() < 2460)) {//오전1시~오전12시 && 오후5시~오후12시는 계산시간에서 제외
+                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1700 < what_time_isit() && what_time_isit() < 2400)|| what_time_isit()<100) {//오전1시~오전12시 && 오후5시~오후12시는 계산시간에서 제외
                                 Toast.makeText(getApplicationContext(), getString(R.string.time_over), Toast.LENGTH_SHORT).show();
                                 speech(getString(R.string.time_over));
                             } else {
@@ -352,7 +353,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                     long a = b/(60*60); //남은시간
                                     long hourToMin = a *60;//분으로 변환
                                     long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
-                                    if (result > 100) {
+                                    if (result >= 100) {
                                         Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                     } else {
@@ -385,7 +386,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                             Toast.makeText(getApplicationContext(), getString(R.string.fry_weekend_over), Toast.LENGTH_SHORT).show();
                             speech(getString(R.string.fry_weekend_over));
                         } else {
-                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1630 < what_time_isit() && what_time_isit() < 2460)) {//오전1시~오전12시 && 오후4시 반~오후12시는 계산시간에서 제외
+                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1630 < what_time_isit() && what_time_isit() < 2400)|| what_time_isit()<100) {//오전1시~오전12시 && 오후4시 반~오후12시는 계산시간에서 제외
                                 Toast.makeText(getApplicationContext(), getString(R.string.time_over), Toast.LENGTH_SHORT).show();
                                 speech(getString(R.string.time_over));
                             } else {
@@ -399,7 +400,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                     long a = b/(60*60); //남은시간
                                     long hourToMin = a *60;//분으로 변환
                                     long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
-                                    if (result > 100) {
+                                    if (result >= 100) {
                                         Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                     } else {
@@ -432,7 +433,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                         Toast.makeText(getApplicationContext(), getString(R.string.weekend_over), Toast.LENGTH_SHORT).show();
                         speech(getString(R.string.weekend_over));
                     } else {
-                        if ((100 < what_time_isit() && what_time_isit() < 1200) || (1630 < what_time_isit() && what_time_isit() < 2460)) {//오전1시~오전12시 && 오후4시 반~오후12시는 계산시간에서 제외
+                        if ((100 < what_time_isit() && what_time_isit() < 1200) || (1630 < what_time_isit() && what_time_isit() < 2400)|| what_time_isit()<100) {//오전1시~오전12시 && 오후4시 반~오후12시는 계산시간에서 제외
                             Toast.makeText(getApplicationContext(), getString(R.string.time_over), Toast.LENGTH_SHORT).show();
                             speech(getString(R.string.time_over));
                         } else {
@@ -446,7 +447,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                 long a = b/(60*60); //남은시간
                                 long hourToMin = a *60;//분으로 변환
                                 long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
-                                if (result > 100) {
+                                if (result >= 100) {
                                     Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                     speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                 } else {
@@ -479,7 +480,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                             Toast.makeText(getApplicationContext(), getString(R.string.weekend_over), Toast.LENGTH_SHORT).show();
                             speech(getString(R.string.weekend_over));
                         } else {
-                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1710 < what_time_isit() && what_time_isit() < 2460)) {//오전1시~오전12시 && 오후4시 반, 5시 10분~오후12시는 계산시간에서 제외
+                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1710 < what_time_isit() && what_time_isit() < 2400)|| what_time_isit()<100) {//오전1시~오전12시 && 오후4시 반, 5시 10분~오후12시는 계산시간에서 제외
                                 Toast.makeText(getApplicationContext(), getString(R.string.time_over), Toast.LENGTH_SHORT).show();
                                 speech(getString(R.string.time_over));
                             } else {
@@ -494,7 +495,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                         long a = b/(60*60); //남은시간
                                         long hourToMin = a *60;//분으로 변환
                                         long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
-                                        if (result > 100) {
+                                        if (result >= 100) {
                                             Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                             speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                         } else {
@@ -514,7 +515,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                         long a = b/(60*60); //남은시간
                                         long hourToMin = a *60;//분으로 변환
                                         long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
-                                        if (result > 100) {
+                                        if (result >= 100) {
                                             Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                             speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                         } else {
@@ -548,7 +549,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                             Toast.makeText(getApplicationContext(), getString(R.string.fry_weekend_over), Toast.LENGTH_SHORT).show();
                             speech(getString(R.string.fry_weekend_over));
                         } else {
-                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1700 < what_time_isit() && what_time_isit() < 2460)) {//오전1시~오전12시 && 오후5시~오후12시는 계산시간에서 제외
+                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1700 < what_time_isit() && what_time_isit() < 2400)|| what_time_isit()<100) {//오전1시~오전12시 && 오후5시~오후12시는 계산시간에서 제외
                                 Toast.makeText(getApplicationContext(), getString(R.string.time_over), Toast.LENGTH_SHORT).show();
                                 speech(getString(R.string.time_over));
                             } else {
@@ -562,7 +563,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                     long a = b/(60*60); //남은시간
                                     long hourToMin = a *60;//분으로 변환
                                     long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
-                                    if (result > 100) {
+                                    if (result >= 100) {
                                         Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                     } else {
@@ -595,7 +596,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                             Toast.makeText(getApplicationContext(), getString(R.string.weekend_over), Toast.LENGTH_SHORT).show();
                             speech(getString(R.string.weekend_over));
                         } else {
-                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (2010 < what_time_isit() && what_time_isit() < 2460)) {//오전1시~오전12시 && 오후5시 20분, 8시 10분~오후12시는 계산시간에서 제외
+                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (2010 < what_time_isit() && what_time_isit() < 2400)|| what_time_isit()<100) {//오전1시~오전12시 && 오후5시 20분, 8시 10분~오후12시는 계산시간에서 제외
                                 Toast.makeText(getApplicationContext(), getString(R.string.time_over), Toast.LENGTH_SHORT).show();
                                 speech(getString(R.string.time_over));
                             } else {
@@ -610,7 +611,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                         long a = b/(60*60); //남은시간
                                         long hourToMin = a *60;//분으로 변환
                                         long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
-                                        if (result > 100) {
+                                        if (result >= 100) {
                                             Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                             speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                         } else {
@@ -630,7 +631,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                         long a = b/(60*60); //남은시간
                                         long hourToMin = a *60;//분으로 변환
                                         long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
-                                        if (result > 100) {
+                                        if (result >= 100) {
                                             Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                             speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                         } else {
@@ -664,7 +665,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                             Toast.makeText(getApplicationContext(), getString(R.string.fry_weekend_over), Toast.LENGTH_SHORT).show();
                             speech(getString(R.string.fry_weekend_over));
                         } else {
-                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1700 < what_time_isit() && what_time_isit() < 2460)) {//오전1시~오전12시 && 오후5시~오후12시는 계산시간에서 제외
+                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1700 < what_time_isit() && what_time_isit() < 2400)|| what_time_isit()<100) {//오전1시~오전12시 && 오후5시~오후12시는 계산시간에서 제외
                                 Toast.makeText(getApplicationContext(), getString(R.string.time_over), Toast.LENGTH_SHORT).show();
                                 speech(getString(R.string.time_over));
                             } else {
@@ -678,7 +679,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                     long a = b/(60*60); //남은시간
                                     long hourToMin = a *60;//분으로 변환
                                     long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
-                                    if (result > 100) {
+                                    if (result >= 100) {
                                         Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                     } else {
@@ -711,7 +712,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                             Toast.makeText(getApplicationContext(), getString(R.string.weekend_over), Toast.LENGTH_SHORT).show();
                             speech(getString(R.string.weekend_over));
                         } else {
-                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1730 < what_time_isit() && what_time_isit() < 2460)) {//오전1시~오전12시 && 오후4시 반~오후12시는 계산시간에서 제외
+                            if ((100 < what_time_isit() && what_time_isit() < 1200) || (1730 < what_time_isit() && what_time_isit() < 2400)|| what_time_isit()<100) {//오전1시~오전12시 && 오후4시 반~오후12시는 계산시간에서 제외
                                 Toast.makeText(getApplicationContext(), getString(R.string.time_over), Toast.LENGTH_SHORT).show();
                                 speech(getString(R.string.time_over));
                             } else {
@@ -725,7 +726,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                                     long a = b/(60*60); //남은시간
                                     long hourToMin = a *60;//분으로 변환
                                     long min = (b/60)-hourToMin;//차를 분으로 변환한 것에 구해진 시간을 분으로 변환한 것을 뺌
-                                    if (result > 100) {
+                                    if (result >= 100) {
                                         Toast.makeText(getApplicationContext(), "셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.", Toast.LENGTH_LONG).show();
                                         speech("셔틀 출발까지 " + String.valueOf(a) + "시간 " + String.valueOf(min) + "분 남았습니다.");
                                     } else {
@@ -919,6 +920,14 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         Calendar calendar = Calendar.getInstance();
         Date date = calendar.getTime();
         SimpleDateFormat sdf = new SimpleDateFormat("HHmm", Locale.KOREA);
+        String now = null;
+        now = sdf.format(date);
+        return Integer.parseInt(now);
+    }
+    public int test(){
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("hhmm",Locale.KOREA);
         String now = null;
         now = sdf.format(date);
         return Integer.parseInt(now);
