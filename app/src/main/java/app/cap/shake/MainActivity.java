@@ -24,14 +24,12 @@ import android.view.View;
 import android.widget.Toast;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
 import com.sackcentury.shinebuttonlib.ShineButton;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.AdView;
 
 public class MainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener{
