@@ -42,7 +42,8 @@
     <string name="time_over">셔틀 운행 시간이 아닙니다.</string>
     <string name="weekend_over">주말엔 운행 시간을 계산할 수 없습니다.</string>
     <string name="fry_weekend_over">주말이나 금요일엔 운행시간을 계산할 수 없습니다.</string>
-    <string name="donation">ca-app-pub-1405827106256391/6607646045</string>
+    <string name="donation">pub-1405827106256391</string>
+    <string name="admob">ca-app-pub-1405827106256391/6607646045</string>
     <!--도움말-->
     <string name="about_introduction">This application is Copyright © Seongjae Moon. All rights reserved.\n\nThis application use Open Source Library.
         \nYou can find the source code of these open source projects, along with applicable license information, below.

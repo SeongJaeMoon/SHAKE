@@ -35,6 +35,7 @@ dependencies {
     compile 'com.firebaseui:firebase-ui-database:1.2.0'
     compile 'com.google.firebase:firebase-core:10.2.6'
     compile 'com.google.firebase:firebase-storage:10.2.6'
+    compile 'com.google.firebase:firebase-ads:10.2.6'
     compile 'com.sackcentury:shinebutton:0.1.9'
     compile 'me.drakeet.support:about:1.4.0'
     compile 'me.drakeet.multitype:multitype:3.3.0'

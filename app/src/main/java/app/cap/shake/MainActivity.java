@@ -22,13 +22,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
 import com.sackcentury.shinebuttonlib.ShineButton;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.AdView;
 
 public class MainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener{
     private static final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 777;
@@ -48,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     private static final String station_uni_ = "station_uni"; // 역->학교 (성환역)
     private SimpleDateFormat sdf = new SimpleDateFormat("HHmm", Locale.KOREA);//시간 차를 계산하기 위한 포멧
     private Calendar c1, c2;
+    private AdView adView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,7 +125,44 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             editor.putBoolean("isFirst", false).apply();
             showGuide();
         }
+        //ADMOB
+        adView =(AdView)findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+                Log.i("Ads", "onAdLoaded");
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                // Code to be executed when an ad request fails.
+                Log.i("Ads", "onAdFailedToLoad, "+String.valueOf(errorCode));
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+                Log.i("Ads", "onAdOpened");
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+                Log.i("Ads", "onAdLeftApplication");
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when when the user is about to return
+                // to the app after tapping on an ad.
+                Log.i("Ads", "onAdClosed");
+            }
+        });
         //역->학교
         station_uni.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -845,6 +887,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             tts.stop();
             tts.shutdown();
         }
+        adView.destroy();
     }
 
     @Override
@@ -886,6 +929,11 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         backHandler.onBackPressed();
     }
     @Override
+    protected void onPause(){
+        super.onPause();
+        adView.pause();
+    }
+    @Override
     protected void onStart() {
         super.onStart();
 
@@ -893,6 +941,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     @Override
     protected void onResume() {
         super.onResume();
+        adView.resume();
     }
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
