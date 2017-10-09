@@ -183,6 +183,10 @@ public class FloatingViewService extends Service implements ShakeDetector.OnShak
             @Override
             public void onClick(View view) {
                 //close 버튼 클릭시 서비스도 종료
+                if (tts != null) {
+                    tts.stop();
+                    tts.shutdown();
+                }
                 ShakeDetector.stop();
                 ShakeDetector.destroy();
                 stopSelf();
