@@ -31,6 +31,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import com.google.android.gms.ads.AdView;
+import android.net.NetworkInfo;
+import android.net.ConnectivityManager;
 
 public class MainActivity extends AppCompatActivity implements TextToSpeech.OnInitListener{
     private static final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 777;
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     private SimpleDateFormat sdf = new SimpleDateFormat("HHmm", Locale.KOREA);//시간 차를 계산하기 위한 포멧
     private Calendar c1, c2;
     private AdView adView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,7 +130,6 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         adView =(AdView)findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
-
         adView.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
@@ -161,6 +163,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
                 Log.i("Ads", "onAdClosed");
             }
         });
+
         //역->학교
         station_uni.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -803,8 +806,16 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     public boolean onOptionsItemSelected(MenuItem menuItem){
         switch (menuItem.getItemId()){
             case R.id.all_view :
-                Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("https://shake-52ca3.firebaseapp.com/"));
-                startActivity(intent);
+                ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+                final NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
+                final boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+                if(!isConnected){
+                    Toast.makeText(getApplicationContext(), getString(R.string.network_not), Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://shake-52ca3.firebaseapp.com/"));
+                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(), getString(R.string.data_charge), Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.help_view:
                 startActivity(new Intent(MainActivity.this, AboutActivity.class));
