@@ -184,7 +184,6 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
             @Override
             public void onCheckedChanged(View view, boolean checked) {
                     if (checked){
-                        Log.w("whattimeisit: ", String.valueOf(what_time_isit())+","+String.valueOf(test()));
                         if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED){
                             if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this, Manifest.permission.READ_CALENDAR)) {
                                 Toast.makeText(getApplicationContext(), getString(R.string.calender_per), Toast.LENGTH_LONG).show();
