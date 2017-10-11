@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">흔들흔들</string>
+    <string name="app_name">NSU셔틀</string>
     <string name="presented_by">Presented by engineering of GIS.</string>
     <string name="start">시작</string>
     <string name="open">열기</string>
