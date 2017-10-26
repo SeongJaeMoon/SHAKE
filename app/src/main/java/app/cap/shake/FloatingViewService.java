@@ -44,8 +44,8 @@ public class FloatingViewService extends Service implements ShakeDetector.OnShak
     public static final double Lat = 36.910371;
     public static final double Lng = 127.142214;
     //역 셔틀장 경위도
-    public static final double lat = 36.916134;
-    public static final double lng = 127.127917;
+    public static final double lat = 36.916121;
+    public static final double lng = 127.127967;
     //거리 변수
     Location lastlocation = new Location("last");
     double currentLon = 0;
@@ -109,6 +109,8 @@ public class FloatingViewService extends Service implements ShakeDetector.OnShak
                     1620, 1625, 1630, 1640, 1645, 1650, 1655, 1700, 1710, 1720, 1725, 1730, 1740, 1745, 1750, 1755,
                     1805, 1810, 1815, 1825, 1835, 1845, 1855, 1905, 1920, 1930, 1940, 1950, 2000, 2015, 2040, 2100,
                     2115, 2140, 2200};
+
+    private static final int[] subway_uni_station = new int[]{601, 649, 748, 823, 1008, 1046, 1218, 1309, 1420, 1510, 1706, 1743, 1837, 2007, 2103};
 
     //계산 순서 : 거리?>휴일(토,일)?>버튼종류?>요일?>운행시간?>>남은 시간 최소값(시, 분, 초)?> 남은 시간, 거리 Return.
     public FloatingViewService() {
@@ -253,8 +255,8 @@ public class FloatingViewService extends Service implements ShakeDetector.OnShak
                             speech(getString(R.string.time_over));
                         } else {
                                 isFinished = getMinimum(what_time_isit(), day_ofthe_week(), set);
-                                Toast.makeText(getApplicationContext(), isFinished+String.valueOf(Math.round(distance))+"미터입니다.", Toast.LENGTH_LONG).show();
-                                speech(isFinished+String.valueOf(Math.round(distance))+"미터입니다.");
+                                Toast.makeText(getApplicationContext(), isFinished+String.valueOf(Math.round(distance))+"미터입니다. "+getSubwayTime(what_time_isit(),day_ofthe_week(),set), Toast.LENGTH_LONG).show();
+                                speech(isFinished+String.valueOf(Math.round(distance))+"미터입니다. "+getSubwayTime(what_time_isit(),day_ofthe_week(),set));
                             }
                         }
                     }else{
@@ -456,6 +458,25 @@ public class FloatingViewService extends Service implements ShakeDetector.OnShak
                 }
             }
             min_string = result > 1000 ? "가장 가까운 셔틀의 출발시간은 "+String.valueOf(result/1000%10)+String.valueOf(result/100%10)+"시 "+String.valueOf(result /10%10)+String.valueOf(result%10)+"분 차이며, 역 셔틀장까지 거리는 약 ":"가장 가까운 셔틀의 출발시간은 "+String.valueOf(result/100%10)+"시 "+String.valueOf(result /10%10)+String.valueOf(result%10)+"분 차이며, 역 셔틀장까지 거리는 약 ";
+        }
+        return min_string;
+    }
+    public String getSubwayTime(int now, String day, String type){
+        String min_string = null;
+        int result = 0;
+        int min = Integer.MAX_VALUE;
+        if (!day.equals("토") && !day.equals("일") && type.equals(uni_station)) {//학교->역 금요일 아닐 경우.
+            for (int i = 0; i < subway_uni_station.length; i++) {
+                int a = Math.abs(subway_uni_station[i] - now);//비교 대상 - 현재 시간
+                if (min > a && subway_uni_station[i] > now) { // 최대 값 > abs(비교 대상 - 현재 시간) && 비교대상이 현재시간보다 나중 시간
+                    min = a; //abs(비교 대상 - 현재시간)>> 최소 값을 구해나가기 위해서 모든 비교 대상의 값을 하나하나 비교
+                    result = subway_uni_station[i];//결과 = 비교 대상
+                }
+            }
+            min_string = result > 1000 ? "가장 가까운 급행열차의 출발시간은 "+String.valueOf(result/1000%10)+String.valueOf(result/100%10)+"시 "+String.valueOf(result /10%10)+String.valueOf(result%10)+"분 차입니다." : "가장 가까운 셔틀의 출발시간은 "+String.valueOf(result/100%10)+"시 "+String.valueOf(result /10%10)+String.valueOf(result%10)+"분 차입니다.";
+        }else
+        {
+            min_string = "";
         }
         return min_string;
     }
