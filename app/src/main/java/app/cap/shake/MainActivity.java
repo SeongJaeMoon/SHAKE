@@ -2,6 +2,7 @@ package app.cap.shake;
 
 import android.Manifest;
 import android.app.ActivityManager;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -113,10 +114,14 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         //BACK버튼
         backHandler = new BackHandler(this);
         //TTS 엔진 확인
-        final Intent checkTTS = new Intent();
-        checkTTS.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-        startActivityForResult(checkTTS, MY_TTS_CHECK);
-        tts = new TextToSpeech(this, this);
+        try {
+            final Intent checkTTS = new Intent();
+            checkTTS.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+            startActivityForResult(checkTTS, MY_TTS_CHECK);
+            tts = new TextToSpeech(this, this);
+        }catch(ActivityNotFoundException e){
+            Toast.makeText(getApplicationContext(), getResources().getString(R.string.tts_not_avaiable), Toast.LENGTH_SHORT).show();
+        }
         locationManager = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE); //위치 켜져 있는지 확인용
         SharedPreferences mPref = getSharedPreferences("isFirst", MODE_PRIVATE);
         Boolean bfirst = mPref.getBoolean("isFirst", true);

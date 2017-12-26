@@ -20,7 +20,7 @@ android {
         }
     }
     compileSdkVersion 25
-    buildToolsVersion "26.0.0"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "app.cap.shake"
         minSdkVersion 22
