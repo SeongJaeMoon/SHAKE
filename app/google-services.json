@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "550163034634",
-    "firebase_url": "https://intercepted-84b0b.firebaseio.com",
-    "project_id": "intercepted-84b0b",
-    "storage_bucket": "intercepted-84b0b.appspot.com"
+    "project_number": "",
+    "firebase_url": "",
+    "project_id": "",
+    "storage_bucket": ""
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:550163034634:android:a97c19bfccc476b5",
+        "mobilesdk_app_id": "",
         "android_client_info": {
           "package_name": "app.cap.shake"
         }
       },
       "oauth_client": [
         {
-          "client_id": "550163034634-fqc0b6out1i4megogneoqiteooh4qfac.apps.googleusercontent.com",
+          "client_id": "",
           "client_type": 1,
           "android_info": {
             "package_name": "app.cap.shake",
-            "certificate_hash": "54f116f318826f82e8bc20d8c9584c704a2a5905"
+            "certificate_hash": ""
           }
         },
         {
-          "client_id": "550163034634-gn10en6b0icldt3lr9s9f69qduvlfq6h.apps.googleusercontent.com",
+          "client_id": "",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA0ZSzpFdYL6eml4pw4mWywGVszAGXl3Q4"
+          "current_key": ""
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "550163034634-gn10en6b0icldt3lr9s9f69qduvlfq6h.apps.googleusercontent.com",
+              "client_id": "",
               "client_type": 3
             }
           ]
